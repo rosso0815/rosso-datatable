@@ -1,0 +1,14 @@
+INSERT INTO rfc( id, number, start, finish, remark, active) values (1,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (2,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , false);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (3,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (4,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (5,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (6,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (7,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (8,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (9,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (10,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (11,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (12,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (13,111 , CURRENT_DATE(), CURRENT_DATE(), 'remark' , true);
+INSERT INTO rfc( id, number, start, finish, remark, active) values (14,112 , CURRENT_DATE()-1, CURRENT_DATE()+1, 'remark' , false);

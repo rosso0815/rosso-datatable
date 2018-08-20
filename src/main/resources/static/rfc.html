@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>VueRouter01</title>
+    <link rel='stylesheet' href='webjars/bootstrap/css/bootstrap.css'>
+	<link rel='stylesheet' href='webjars/bootstrap-vue/dist/bootstrap-vue.css'>
+</head>
+
+<body>
+    <div class="container">
+        <main id="app">
+            <router-link to="/home">home</router-link>
+            <router-link to="/RfcList">RfcList</router-link>
+            <router-view></router-view>
+        </main>
+    </div>
+    <!-- VUE -->
+    <script src="webjars/vue/dist/vue.js"></script>
+	<script src="webjars/vue-router/dist/vue-router.js"></script>
+	<script src="webjars/vue-resource/dist/vue-resource.js"></script>
+    <script src="webjars/bootstrap-vue/dist/bootstrap-vue.js"></script>
+    <script src="webjars/bootstrap-vue/dist/bootstrap-vue.js"></script>
+
+    <script src="js/components/RfcList.js"></script>
+    <script src="js/components/RfcDelete.js"></script>
+    <script src="js/components/RfcEdit.js"></script>
+    <script src="js/components/RfcNew.js"></script>
+        
+    <script src="js/components/Home.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
