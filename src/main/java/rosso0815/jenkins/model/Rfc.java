@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -43,7 +45,7 @@ public class Rfc {
 	private boolean active;
 
 	 @ManyToMany(mappedBy = "rfcs")
-	 @JsonIgnore
-	 private Set<Swid> swids;
+	 //@JsonIgnore
+	 private List<Swid> swids;
 	 
 }
