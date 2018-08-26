@@ -19,4 +19,11 @@ public class UrlTasks {
     public void reportCurrentTime() {
         log.info("The time is now {}", dateFormat.format(new Date()));
     }
+
+    @Scheduled( fixedRate = 1 * 10 * 1000 )
+    public void callRfcService() {
+        log.info("callRfcService = the time is now {}", dateFormat.format(new Date()));
+    }
+
+
 }
