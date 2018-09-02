@@ -6,14 +6,18 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
+//import java.util.Set;
 
 import javax.persistence.Column;
 
@@ -22,6 +26,7 @@ import javax.persistence.Column;
 @Setter
 @NoArgsConstructor
 @Table(name = "rfc")
+@JsonPropertyOrder({ "number", "id" })
 public class Rfc {
 
 	@Id
@@ -46,6 +51,8 @@ public class Rfc {
 
 	 @ManyToMany(mappedBy = "rfcs")
 	 //@JsonIgnore
+	 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+	 @JsonIdentityReference(alwaysAsId=true) 
 	 private List<Swid> swids;
 	 
 }

@@ -12,8 +12,8 @@ const RfcList = {
   data: function () {
     return {
       employees: [],
-      perPage: 15,
-      pageOptions: [5, 10, 15, 20, 50],
+      perPage: 5,
+      pageOptions: [5, 15, 50],
       currentPage: 1,
       totalRows: 0,
       filter: '',
