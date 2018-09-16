@@ -8,13 +8,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
 //import java.util.Set;
@@ -22,9 +17,6 @@ import java.util.List;
 import javax.persistence.Column;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
 @Table(name = "rfc")
 @JsonPropertyOrder({ "number", "id" })
 public class Rfc {
@@ -54,5 +46,61 @@ public class Rfc {
 	 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 	 @JsonIdentityReference(alwaysAsId=true) 
 	 private List<Swid> swids;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+
+	public java.sql.Date getStart() {
+		return start;
+	}
+
+	public void setStart(java.sql.Date start) {
+		this.start = start;
+	}
+
+	public java.sql.Date getFinish() {
+		return finish;
+	}
+
+	public void setFinish(java.sql.Date finish) {
+		this.finish = finish;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public List<Swid> getSwids() {
+		return swids;
+	}
+
+	public void setSwids(List<Swid> swids) {
+		this.swids = swids;
+	}
 	 
 }
