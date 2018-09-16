@@ -4,8 +4,10 @@ import java.util.List;
 
 import rosso0815.jenkins.model.Rfc;
 
-public interface RfcService_Definition {
+public interface I_RfcService {
 	
-	public List<Rfc> ListAllRfc();
+	public List<Rfc> listAllRfc();
+	
+	public void deleteRfc(int id);
 
 }

@@ -11,7 +11,7 @@ const RfcDelete = {
   methods: {
     toDelete: function (event) {
     	console.log('RfcDelete id='+this.id)
-      this.$http.delete('/api/rfc/' + this.id ).then((response) => {
+      this.$http.delete('api/rfc/' + this.id ).then((response) => {
         console.log('delete response.status=' + response.status)
         this.$router.push('/rfcList') 
       }, response => {

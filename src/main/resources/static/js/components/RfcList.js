@@ -1,7 +1,7 @@
 const RfcList = {
   created() {
     console.log('created')
-    this.$http.get('/api/rfc').then((response) => {
+    this.$http.get('api/rfc').then((response) => {
       console.log('response.status=' + response.status)
       this.employees = response.data
       this.totalRows = response.data.length

@@ -10,16 +10,23 @@ import rosso0815.jenkins.model.Rfc;
 import rosso0815.jenkins.repository.RfcRepository;
 
 @Service
-public class RfcService_Implementation implements RfcService_Definition {
+public class RfcService implements I_RfcService {
 	
-	private final static Logger log = Logger.getLogger(RfcService_Implementation.class.getName());
+	private final static Logger log = Logger.getLogger(RfcService.class.getName());
 	
 	@Autowired
 	private RfcRepository rfcRepository;
-
-	public List<Rfc> ListAllRfc() {
+	
+	@Override
+	public List<Rfc> listAllRfc() {
 		log.info("ListAllRfc");
 		return rfcRepository.findAll();
+	}
+
+	@Override
+	public void deleteRfc(int id) {
+		log.info("deleteRfc id="+id);
+		rfcRepository.delete((long) id);
 	}
 
 }

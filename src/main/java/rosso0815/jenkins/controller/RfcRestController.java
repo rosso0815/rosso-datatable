@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import rosso0815.jenkins.model.Rfc;
-import rosso0815.jenkins.service.RfcService_Definition;
+import rosso0815.jenkins.service.RfcService;
 
 @RestController
 @RequestMapping("/api/rfc")
@@ -22,7 +22,7 @@ public class RfcRestController {
 	private final static Logger log = Logger.getLogger(RfcRestController.class.getName());
 
 	@Autowired
-	private RfcService_Definition rfcRepository;
+	private RfcService rfcRepository;
 
 	// ### LIST ALL
 	// curl http://localhost:8080/api/rfc
@@ -30,7 +30,7 @@ public class RfcRestController {
 	@ResponseBody
 	public List<Rfc> retrieveAllRfc() {
 		log.info("list rfc");
-		return rfcRepository.ListAllRfc();
+		return rfcRepository.listAllRfc();
 	}
 
 	// ### LIST SINGLE
@@ -52,12 +52,12 @@ public class RfcRestController {
 	 * return employee.get(); }
 	 */
 
-	//@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	//@ResponseBody
-	//public void deleteRfc(@PathVariable long id) {
-	//	log.info("deleteRfc id = " + id);
-	//	rfcRepository.delete(id);
-	//}
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public void deleteRfc(@PathVariable long id) {
+		log.info("deleteRfc id = " + id);
+		rfcRepository.deleteRfc((int)id);
+	}
 
 	//@RequestMapping(value = "", method = RequestMethod.POST)
 	//@ResponseBody
