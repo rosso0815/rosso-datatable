@@ -6,16 +6,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.sql.Date;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
-// TODO = 1 swid can contain more then one artifact 
-
 @Entity
-@Table(name = "Swid")
+@Table(name = "j5s_swid")
+@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Swid {
 
 	@Id
@@ -23,8 +23,8 @@ public class Swid {
 	@Column(name = "id")
 	private long id;
 
-	@Column(name = "swid" , length = 10 , nullable = false)
-	private String swid;
+	@Column(name = "name" , length = 10 , nullable = false)
+	private String name;
 
 	@Column(name = "remark", length = 255 , nullable = true)
 	private String remark;
@@ -49,9 +49,14 @@ public class Swid {
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
-	@JsonIgnore
 	private Set<Rfc> rfcs;
 
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable
+	private Set<Bundle> bundles;
+	
+	/*------------------------------------------------------------------------------*/
+	
 	public long getId() {
 		return id;
 	}
@@ -60,12 +65,12 @@ public class Swid {
 		this.id = id;
 	}
 
-	public String getSwid() {
-		return swid;
+	public String getName() {
+		return name;
 	}
 
-	public void setSwid(String swid) {
-		this.swid = swid;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getRemark() {
@@ -132,4 +137,15 @@ public class Swid {
 		this.rfcs = rfcs;
 	}
 
+	public Set<Bundle> getBundles() {
+		return bundles;
+	}
+
+	public void setBundles(Set<Bundle> bundles) {
+		this.bundles = bundles;
+	}
+	
+	
+	
+	
 }

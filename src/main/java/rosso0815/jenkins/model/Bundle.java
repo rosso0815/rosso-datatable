@@ -6,9 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@Table(name = "my_bundle")
+@Table(name = "j5s_bundle")
+@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Bundle {
 	
 	@Id
@@ -21,6 +24,7 @@ public class Bundle {
 	private String version;
 	private String environment;
 	
+	/*--------------------------------------------------------------------*/
 	
 	public long getId() {
 		return id;

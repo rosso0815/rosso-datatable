@@ -5,20 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.util.List;
-//import java.util.Set;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "rfc")
-@JsonPropertyOrder({ "number", "id" })
+@Table(name = "j5s_rfc")
+@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Rfc {
 
 	@Id
@@ -41,10 +37,10 @@ public class Rfc {
 	@Column(name = "active")
 	private boolean active;
 
-	 @ManyToMany(mappedBy = "rfcs")
+	 @ManyToMany(mappedBy = "rfcs", cascade = CascadeType.PERSIST)
 	 //@JsonIgnore
-	 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-	 @JsonIdentityReference(alwaysAsId=true) 
+	 //@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+	 //@JsonIdentityReference(alwaysAsId=true) 
 	 private List<Swid> swids;
 
 	public long getId() {

@@ -10,7 +10,7 @@ import rosso0815.jenkins.model.Rfc;
 import rosso0815.jenkins.repository.RfcRepository;
 
 @Service
-public class RfcService implements I_RfcService {
+public class RfcService implements IRfcService {
 	
 	private final static Logger log = Logger.getLogger(RfcService.class.getName());
 	
@@ -24,9 +24,18 @@ public class RfcService implements I_RfcService {
 	}
 
 	@Override
-	public void deleteRfc(int id) {
+	public boolean deleteRfc(long id) {
 		log.info("deleteRfc id="+id);
-		rfcRepository.delete((long) id);
+		
+
+		
+		Rfc rfc = 	rfcRepository.getOne(id);
+		
+		//rfc.getSwids()
+		
+		rfcRepository.delete(id);
+		
+		return true;
 	}
 
 }
