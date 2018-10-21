@@ -2,6 +2,11 @@
 /* jshint esversion: 6 */
 
 const RfcNew = {
+
+    components: {
+  	    vuejsDatepicker
+    },
+
   data: function () {
     return {
       number: '',
@@ -62,7 +67,7 @@ const RfcNew = {
 
       <b-row>
         <b-col sm="2"><label >Start : </label></b-col>
-        <b-col sm="10"><b-form-input v-model="start" type="date"></b-form-input></b-col>
+	  	<vuejs-datepicker></vuejs-datepicker>
       </b-row>
 
       <b-row>
