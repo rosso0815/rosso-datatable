@@ -17,13 +17,17 @@ public class Bundle {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
+
+
+
 	private long id;
 	
 	private String swid;
 	private String name;
 	private String version;
 	private String environment;
-	
+
+
 	/*--------------------------------------------------------------------*/
 	
 	public long getId() {
