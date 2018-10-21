@@ -7,6 +7,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.sql.Date;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class Swid {
 	@Column(name = "id")
 	private long id;
 
-	@Column(name = "name" , length = 10 , nullable = false)
+	@Column(name = "name" , length = 10 , nullable = false , unique=true)
 	private String name;
 
 	@Column(name = "remark", length = 255 , nullable = true)
@@ -46,11 +47,13 @@ public class Swid {
 
 	@Column(name = "prod_installed",nullable = true)
 	private Date prod_installed;
-	
+
+    @JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
 	private Set<Rfc> rfcs;
 
+    @JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
 	private Set<Bundle> bundles;

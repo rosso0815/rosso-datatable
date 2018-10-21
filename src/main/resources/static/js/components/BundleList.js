@@ -1,6 +1,7 @@
 const BundleList = {
   created() {
-    console.log('bundlelist created')
+    // TODO add filter for params.id or undefined
+    console.log('bundlelist created id+'+this.$route.params.id)
     this.$http.get('api/bundle').then((response) => {
       console.log('response.status=' + response.status)
       this.employees = response.data
@@ -11,6 +12,7 @@ const BundleList = {
   },
   data: function () {
     return {
+      id: this.$route.params.id,
       employees: [],
       perPage: 5,
       pageOptions: [5, 15, 50],

@@ -53,11 +53,6 @@ const SwidList = {
         <b-form-select :options="pageOptions" v-model="perPage" />
       </b-form-group>
     </b-col>
-        <b-col md="2">
-      <b-form-group horizontal>
-      	<router-link tag="button" v-bind:to="{path: '/swidnew'}">Add Swid</router-link>
-      </b-form-group>
-    </b-col>
   </b-row>
   <b-table 
     :per-page="perPage"
@@ -98,13 +93,14 @@ const SwidList = {
           <ul id="example-1">
             <li v-for="item in row.item.bundles">
               {{item.name}}-{{item.version}}-{{item.environment}}
+              <router-link to="/bundleList/:1/show">Bundle_1</router-link>
             </li>
           </ul>
         </b-col>
       </b-row>
 
-      <router-link class="btn" v-bind:to="{name: 'rfc-delete', params: {id: row.item.id}}">Delete</router-link>
-      <router-link class="btn" v-bind:to="{name: 'rfc-edit', params: {id: row.item.id}}">Edit</router-link>
+      <router-link class="btn" v-bind:to="{name: 'swid-delete', params: {id: row.item.id}}">Delete</router-link>
+      <router-link class="btn" v-bind:to="{name: 'swid-edit', params: {id: row.item.id}}">Edit</router-link>
     
     </b-card>
   </template>

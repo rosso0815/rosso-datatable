@@ -8,6 +8,7 @@ const router = new VueRouter({
     { path: '/rfc/:id/edit', component: RfcEdit, name: 'rfc-edit'},
     { path: '/rfcnew', component: RfcNew, name: 'rfc-new'},
     { path: '/bundleList', component: BundleList },
+    { path: '/bundleList/:id/show', component: BundleList },
     { path: '/swidList', component: SwidList },
   ]
 })
