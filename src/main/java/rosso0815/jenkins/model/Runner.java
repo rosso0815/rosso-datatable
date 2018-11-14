@@ -17,7 +17,7 @@ import javax.persistence.Column;
 @Entity
 @Table(name = "j5s_swid")
 @JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Swid {
+public class Runner {
 
 	@Id
 	@GeneratedValue
@@ -48,15 +48,15 @@ public class Swid {
 	@Column(name = "prod_installed",nullable = true)
 	private Date prod_installed;
 
-    @JsonIgnore
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable
-	private Set<Rfc> rfcs;
+//    @JsonIgnore
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable
+//	private Set<Rfc> rfcs;
 
     @JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
-	private Set<Bundle> bundles;
+	private Set<JenkinsJob> bundles;
 	
 	/*------------------------------------------------------------------------------*/
 	
@@ -132,19 +132,11 @@ public class Swid {
 		this.prod_installed = prod_installed;
 	}
 
-	public Set<Rfc> getRfcs() {
-		return rfcs;
-	}
-
-	public void setRfcs(Set<Rfc> rfcs) {
-		this.rfcs = rfcs;
-	}
-
-	public Set<Bundle> getBundles() {
+	public Set<JenkinsJob> getBundles() {
 		return bundles;
 	}
 
-	public void setBundles(Set<Bundle> bundles) {
+	public void setBundles(Set<JenkinsJob> bundles) {
 		this.bundles = bundles;
 	}
 	

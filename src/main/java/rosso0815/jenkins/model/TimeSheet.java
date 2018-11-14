@@ -3,21 +3,18 @@ package rosso0815.jenkins.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import java.util.List;
-import javax.persistence.CascadeType;
+import java.util.Date;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "j5s_rfc")
+@Table(name = "timesheet")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Rfc {
+public class TimeSheet {
 
     @Id
     @GeneratedValue
@@ -28,19 +25,20 @@ public class Rfc {
     private Integer number;
 
     @Column(name = "start")
-    private java.sql.Date start;
+    private Date start;
 
     @Column(name = "finish")
-    private java.sql.Date finish;
+    private Date finish;
 
     @Column(name = "remark")
     private String remark;
 
     @Column(name = "active")
     private boolean active;
+//
+//    @ManyToMany(mappedBy = "rfcs", cascade = CascadeType.PERSIST)
+//    private List<Runner> swids;
 
-    @ManyToMany(mappedBy = "rfcs", cascade = CascadeType.PERSIST)
-    private List<Swid> swids;
 
     public long getId() {
         return id;
@@ -58,19 +56,19 @@ public class Rfc {
         this.number = number;
     }
 
-    public java.sql.Date getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(java.sql.Date start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public java.sql.Date getFinish() {
+    public Date getFinish() {
         return finish;
     }
 
-    public void setFinish(java.sql.Date finish) {
+    public void setFinish(Date finish) {
         this.finish = finish;
     }
 
@@ -89,13 +87,4 @@ public class Rfc {
     public void setActive(boolean active) {
         this.active = active;
     }
-
-    public List<Swid> getSwids() {
-        return swids;
-    }
-
-    public void setSwids(List<Swid> swids) {
-        this.swids = swids;
-    }
-
 }

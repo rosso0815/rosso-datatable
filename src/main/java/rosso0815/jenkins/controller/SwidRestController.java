@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rosso0815.jenkins.model.Swid;
+import rosso0815.jenkins.model.Runner;
 import rosso0815.jenkins.service.ISwidService;
-
 
 @RestController
 @RequestMapping("/api/swid")
@@ -26,7 +25,7 @@ public class SwidRestController {
 	// curl http://localhost:8080/api/rfc
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public List<Swid> retrieveAllRfc() {
+	public List<Runner> retrieveAllRfc() {
 		log.info("list swid");
 		return swidRepository.listAllSwid();
 	}

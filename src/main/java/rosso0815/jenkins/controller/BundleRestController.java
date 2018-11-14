@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rosso0815.jenkins.model.Bundle;
+import rosso0815.jenkins.model.JenkinsJob;
 import rosso0815.jenkins.service.IBundleService;
 
 
@@ -28,7 +28,7 @@ public class BundleRestController {
 	// curl http://localhost:8080/api/rfc
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public List<Bundle> retrieveAllRfc() {
+	public List<JenkinsJob> retrieveAllRfc() {
 		log.info("list rfc");
 		return bundleRepository.listAllBundle();
 	}

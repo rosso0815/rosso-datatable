@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rosso0815.jenkins.model.Rfc;
-import rosso0815.jenkins.service.RfcService;
+import rosso0815.jenkins.model.TimeSheet;
+import rosso0815.jenkins.service.TimeSheetService;
 
 @RestController
-@RequestMapping("/api/rfc")
-public class RfcRestController {
+@RequestMapping("api/timesheet")
+public class TimeSheetRestController {
 
-	private final static Logger log = Logger.getLogger(RfcRestController.class.getName());
+	private final static Logger log = Logger.getLogger(TimeSheetRestController.class.getName());
 
 	@Autowired
-	private RfcService rfcRepository;
-
-	// ### LIST ALL
-	// curl http://localhost:8080/api/rfc
+	private TimeSheetService timeSheetservice;
+//
+//	// ### LIST ALL
+//	// curl http://localhost:8080/api/rfc
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public List<Rfc> retrieveAllRfc() {
-		log.info("list rfc");
-		return rfcRepository.listAllRfc();
+	public List<TimeSheet> retrieveAllTimeSheet() {
+		log.info("list TimeSheets now");
+		return timeSheetservice.listAllTimeSheet();
 	}
 
 	// ### LIST SINGLE
@@ -52,12 +52,12 @@ public class RfcRestController {
 	 * return employee.get(); }
 	 */
 
-	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	@ResponseBody
-	public void deleteRfc(@PathVariable long id) {
-		log.info("deleteRfc id = " + id);
-		rfcRepository.deleteRfc((int)id);
-	}
+//	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+//	@ResponseBody
+//	public void deleteRfc(@PathVariable long id) {
+//		log.info("deleteRfc id = " + id);
+//		rfcRepository.deleteRfc((int)id);
+//	}
 
 	//@RequestMapping(value = "", method = RequestMethod.POST)
 	//@ResponseBody
@@ -70,15 +70,15 @@ public class RfcRestController {
 	//	return ResponseEntity.noContent().build();
 	//}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Object> updateRfc(@RequestBody Rfc rfc, @PathVariable long id) {
-		log.info("updateRfc id = " + id);
-		log.info("rfc.id=" + rfc.getId());
-		log.info("rfc.active=" + rfc.isActive());
-
-		//rfcRepository.save(rfc);
-		//return ResponseEntity.noContent().build();
-		return null;
-	}
+//	@RequestMapping(value = "{id}", method = RequestMethod.PUT)
+//	public ResponseEntity<Object> updateRfc(@RequestBody Rfc rfc, @PathVariable long id) {
+//		log.info("updateRfc id = " + id);
+//		log.info("rfc.id=" + rfc.getId());
+//		log.info("rfc.active=" + rfc.isActive());
+//
+//		//rfcRepository.save(rfc);
+//		//return ResponseEntity.noContent().build();
+//		return null;
+//	}
 
 }

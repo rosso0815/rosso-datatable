@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import rosso0815.jenkins.JenkinsApplication;
-import rosso0815.jenkins.model.Bundle;
+import rosso0815.jenkins.model.JenkinsJob;
 import rosso0815.jenkins.repository.BundleRepository;
 //import rosso0815.jenkins.service.RfcService_Definition;
 //import rosso0815.jenkins.service.WheVerificationService_Definition;
@@ -30,7 +30,7 @@ public class WheVerification_Test  {
 	public void Setup() {
 		
 		// first bundle
-		Bundle b = new Bundle();
+		JenkinsJob b = new JenkinsJob();
 		b.setSwid("gsm");
 		b.setName("gsm_bundle_1");
 		b.setEnvironment("te1");

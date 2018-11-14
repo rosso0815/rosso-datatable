@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import rosso0815.jenkins.model.Swid;
+import rosso0815.jenkins.model.Runner;
 import rosso0815.jenkins.repository.SwidRepository;
 
 @Service
@@ -18,7 +18,7 @@ public class SwidService implements ISwidService {
 	private SwidRepository swidRepository;
 
 	@Override
-	public List<Swid> listAllSwid() {
+	public List<Runner> listAllSwid() {
 		log.info("ListAllSwid");
 		return swidRepository.findAll();
 	}

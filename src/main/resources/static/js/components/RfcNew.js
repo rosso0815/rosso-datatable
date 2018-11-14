@@ -14,7 +14,8 @@ const RfcNew = {
       finish: '',
       remark: '',
       active: '',
-      show: true
+      show: true,
+      answer: 'undefined'
     }
   },
   created () {
@@ -67,17 +68,22 @@ const RfcNew = {
 
       <b-row>
         <b-col sm="2"><label >Start : </label></b-col>
-	  	<vuejs-datepicker></vuejs-datepicker>
+	  	<b-col sm="10"><vuejs-datepicker></vuejs-datepicker></b-col sm="10">
       </b-row>
 
       <b-row>
         <b-col sm="2"><label >Finish : </label></b-col>
-        <b-col sm="10"><b-form-input v-model="finish" type="date"></b-form-input></b-col>
+        <b-col sm="10"><vuejs-datepicker></vuejs-datepicker></b-col sm="10">
       </b-row>
 
       <b-row>
         <b-col sm="2"><label >Remark : </label></b-col>
-        <b-col sm="10"><b-form-input v-model="remark" ></b-form-input></b-col>
+        <b-col sm="10">
+        <textarea rows="4" cols="50" v-model="answer">
+        At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+        </textarea>
+        </b-col>
+
       </b-row> 
 
       <b-row>
@@ -89,6 +95,7 @@ const RfcNew = {
       <b-button type="reset" variant="danger">Reset</b-button>
       <router-link to="/rfclist" tag="button">back to list</router-link>
     </b-form>
+    {{answer}}
     </b-container>
 </div>`
 }

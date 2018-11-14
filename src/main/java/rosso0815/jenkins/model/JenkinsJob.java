@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "j5s_bundle")
 @JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Bundle {
+public class JenkinsJob {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

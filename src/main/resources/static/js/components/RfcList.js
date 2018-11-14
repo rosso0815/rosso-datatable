@@ -1,17 +1,19 @@
 const RfcList = {
+
   created() {
     console.log('created')
-    this.$http.get('api/rfc').then((response) => {
+    this.$http.get('api/timesheet').then((response) => {
       console.log('response.status=' + response.status)
-      this.employees = response.data
+      this.items = response.data
       this.totalRows = response.data.length
     }, response => {
       console.log('ajax resource error')
     })
   },
+
   data: function () {
     return {
-      employees: [],
+      items: [],
       perPage: 5,
       pageOptions: [5, 15, 50],
       currentPage: 1,
@@ -48,6 +50,25 @@ const RfcList = {
       ]
     }
   },
+  methods:{
+    loadData: function(row){
+        var _this = this
+        var _row = row
+
+        console.log('loadData index=' + row.index)
+        //row.item.remark='loaded'
+        _this.$http.get('api/timesheet').then((response) => {
+            console.log('response.status=' + response.status)
+            row.item.remark='loaded '+row.index
+            //this.items = response.data
+            //this.totalRows = response.data.length
+        }, response => {
+            console.log('ajax resource error')
+        })
+
+    }
+  },
+
   filters: {
     uppercase: function (value) {
       return value.toUpperCase()
@@ -81,7 +102,7 @@ const RfcList = {
     :per-page="perPage"
     :current-page="currentPage"
     :filter="filter"
-    :items="employees"
+    :items="items"
     :fields="fields"
     :hover="true"
     :sort-by.sync="sortBy"
@@ -98,6 +119,8 @@ const RfcList = {
 
     <template slot="row-details" slot-scope="row">
     <b-card>
+        {{ loadData( row ) }}
+
       <b-row class="mb-2">
         <b-col sm="3" class="text-sm-right"><b>remark</b></b-col>
         <b-col>{{ row.item.remark }}</b-col>

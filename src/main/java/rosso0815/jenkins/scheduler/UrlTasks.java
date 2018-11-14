@@ -22,12 +22,12 @@ public class UrlTasks {
     }
     */
     
-    
+    /*
     @Scheduled( fixedRate = 1 * 10 * 1000 )
     public void callRfcService() {
         log.info("callRfcService = the time is now {}", dateFormat.format(new Date()));
     }
-
+*/
 
 
 }

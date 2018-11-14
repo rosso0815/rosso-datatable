@@ -10,8 +10,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class JenkinsApplication {
 
 	public static void main(String[] args) {
+		//ApplicationContext applicationContext = 
+				
+				SpringApplication.run(JenkinsApplication.class, args);
 
-		SpringApplication.run(JenkinsApplication.class, args);
+		//for (String name : applicationContext.getBeanDefinitionNames()) {
+		//	System.out.println(name);
+		//}
 	}
-
 }
