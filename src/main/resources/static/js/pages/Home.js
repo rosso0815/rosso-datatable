@@ -1,4 +1,11 @@
+
+
+
+
+
+
 const Home = {
+  
 
   data() {
     return {
@@ -7,7 +14,9 @@ const Home = {
   },
 
   template: `<div>
-  Home and data={{data}}
+  HOME of {{data}}
+
+  <MyMenu>MyMenu</MyMenu>
   </div>`
 
 }

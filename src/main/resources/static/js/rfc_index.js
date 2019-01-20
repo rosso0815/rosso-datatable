@@ -1,6 +1,10 @@
+
+
+
+
 app = new Vue({
   router,
     components: {
-    	vuejsDatepicker
+      vuejsDatepicker
     }
 }).$mount('#app')

@@ -2,13 +2,15 @@ const RfcList = {
 
   created() {
     console.log('created')
-    this.$http.get('api/timesheet').then((response) => {
+
+    axios
+      .get('api/timesheet')
+      .then((response) => {
       console.log('response.status=' + response.status)
       this.items = response.data
       this.totalRows = response.data.length
-    }, response => {
-      console.log('ajax resource error')
     })
+
   },
 
   data: function () {
@@ -21,10 +23,7 @@ const RfcList = {
       filter: '',
       sortBy: 'number',
       sortDesc: false,
-      fields: [{
-          key: 'id',
-          sortable: true
-        },
+      fields: [
         {
           key: 'number',
           sortable: true
@@ -57,25 +56,54 @@ const RfcList = {
 
         console.log('loadData index=' + row.index)
         //row.item.remark='loaded'
-        _this.$http.get('api/timesheet').then((response) => {
+        axios
+          .get('api/timesheet')
+          .then((response) => {
             console.log('response.status=' + response.status)
             row.item.remark='loaded '+row.index
             //this.items = response.data
             //this.totalRows = response.data.length
-        }, response => {
-            console.log('ajax resource error')
         })
+    },
+    
+    
 
-    }
   },
 
   filters: {
     uppercase: function (value) {
       return value.toUpperCase()
-    }
+    },
+
+    toDate: function(row){
+      var t = new Date(row)
+      var seconds = t.getSeconds()
+      var minutes = t.getMinutes()
+      var hours = t.getHours()
+      var date = t.getDate();
+      var month = t.getMonth(); 
+      var year = t.getFullYear();
+ 
+      return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds
+    },
   },
   template: `
 <div>
+
+
+
+
+<b-navbar toggleable="md" type="dark" variant="info">
+
+
+
+    <b-navbar-nav>
+      <b-nav-item href="#">Link</b-nav-item>
+      <b-nav-item href="#" disabled>Disabled</b-nav-item>
+    </b-navbar-nav>
+    </b-navbar>
+
+
   <b-row>
     <b-col md="8">
       <b-form-group horizontal label="Filter" >
@@ -108,8 +136,11 @@ const RfcList = {
     :sort-by.sync="sortBy"
     :sort-desc.sync="sortDesc"
     >
-      <template slot="first_name" slot-scope="row">{{row.value | uppercase }}</template>
       
+      <template slot="start" slot-scope="row">{{ row.value | toDate }}</template>
+      
+      <template slot="finish" slot-scope="row">{{ row.value | toDate }}</template>
+
       <template slot="actions" slot-scope="row">
       <!-- we use @click.stop here to prevent emitting of a 'row-clicked' event  -->
       <b-button size="sm" @click.stop="row.toggleDetails" class="mr-2">
