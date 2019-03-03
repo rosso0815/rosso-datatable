@@ -1,4 +1,4 @@
-const RfcList = {
+const TsList = {
 
   created() {
     console.log('created')
@@ -90,19 +90,7 @@ const RfcList = {
   template: `
 <div>
 
-
-
-
-<b-navbar toggleable="md" type="dark" variant="info">
-
-
-
-    <b-navbar-nav>
-      <b-nav-item href="#">Link</b-nav-item>
-      <b-nav-item href="#" disabled>Disabled</b-nav-item>
-    </b-navbar-nav>
-    </b-navbar>
-
+  <MyMenu>MyMenu</MyMenu>
 
   <b-row>
     <b-col md="8">

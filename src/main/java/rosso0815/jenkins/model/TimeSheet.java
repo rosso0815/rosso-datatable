@@ -12,7 +12,7 @@ import java.util.Date;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "timesheet")
+@Table(name = "j5s_timesheet")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class TimeSheet {
 
@@ -35,10 +35,18 @@ public class TimeSheet {
 
     @Column(name = "active")
     private boolean active;
-//
-//    @ManyToMany(mappedBy = "rfcs", cascade = CascadeType.PERSIST)
-//    private List<Runner> swids;
 
+    @Override
+    public String toString() {
+        return "TimeSheet{" +
+                "id=" + id +
+                ", number=" + number +
+                ", start=" + start +
+                ", finish=" + finish +
+                ", remark='" + remark + '\'' +
+                ", active=" + active +
+                '}';
+    }
 
     public long getId() {
         return id;

@@ -1,9 +1,4 @@
 
-
-
-
-
-
 const Home = {
   
 
@@ -13,10 +8,11 @@ const Home = {
     }
   },
 
-  template: `<div>
-  HOME of {{data}}
-
-  <MyMenu>MyMenu</MyMenu>
-  </div>`
+  template: `
+  <div>
+    <MyMenu>MyMenu</MyMenu>
+    <i class="icon ion-md-heart"></i>
+  </div>
+  `
 
 }
