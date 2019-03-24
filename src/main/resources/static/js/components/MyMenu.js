@@ -1,7 +1,4 @@
 
-
-
-
 Vue.component('MyMenu', {
   template: `
   <div>
