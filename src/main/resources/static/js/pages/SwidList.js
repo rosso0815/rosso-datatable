@@ -1,7 +1,4 @@
-
-
-
-
+'esversion: 6'
 
 const SwidList = {
   created() {

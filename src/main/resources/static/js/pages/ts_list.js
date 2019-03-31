@@ -1,3 +1,5 @@
+'esversion: 6'
+
 const TsList = {
 
   created() {
@@ -89,9 +91,8 @@ const TsList = {
   },
   template: `
 <div>
-
-  <MyMenu>MyMenu</MyMenu>
-
+    <MyMenu/>
+  <div class="container-fluid">
   <b-row>
     <b-col md="8">
       <b-form-group horizontal label="Filter" >
@@ -148,8 +149,8 @@ const TsList = {
         <b-col sm="3" class="text-sm-right"><b>Is Active:</b></b-col>
         <b-col>{{ row.item.active }}</b-col>
       </b-row>
-      <router-link class="btn" v-bind:to="{name: 'rfc-delete', params: {id: row.item.id}}">Delete</router-link>
-      <router-link class="btn" v-bind:to="{name: 'rfc-edit', params: {id: row.item.id}}">Edit</router-link>
+      <router-link class="btn" v-bind:to="{name: 'ts-delete', params: {id: row.item.id}}">Delete</router-link>
+      <!--<router-link class="btn" v-bind:to="{name: 'ts-edit', params: {id: row.item.id}}">Edit</router-link>-->
     </b-card>
   </template>
   </b-table>
@@ -159,6 +160,6 @@ const TsList = {
       <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0" />
     </b-col>
   </b-row>
-
+</div>
 </div>`
 }

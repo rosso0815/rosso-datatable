@@ -1,5 +1,6 @@
+'esversion: 6'
 
-const RfcDelete = {
+const TsDelete = {
   data: function () {
     return {
       id: this.$route.params.id
@@ -21,9 +22,14 @@ const RfcDelete = {
   },
   template: `
 <div>
-    <h2>employee delete {{id}}</h2>
-    <b-button v-on:click="toDelete" >shure ?</b-button>
-    <router-link to="/rfclist" tag="button">back to list</router-link>
+  <MyMenu/>
+  <div class="container-fluid">
+    <b-row>
+      <h2>employee delete {{id}}</h2>
+      <b-button v-on:click="toDelete" >shure ?</b-button>
+      <router-link to="/ts" tag="button">back to list</router-link>
+    </b-row>
+  </div>
 </div>`
 }
 

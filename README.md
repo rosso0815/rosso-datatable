@@ -7,4 +7,7 @@ https://startbootstrap.com/themes/sb-admin-2/
 
 java -jar -Dspring.profiles.active=dev XXX.jar
 
+http://localhost:8081/ts
+
+
 mvn clean spring-boot:run -Dspring-boot.run.profiles=dev

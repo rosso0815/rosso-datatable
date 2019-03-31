@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 
 @Entity
@@ -24,11 +24,11 @@ public class TimeSheet {
     @Column(name = "number")
     private Integer number;
 
-    @Column(name = "start")
-    private Date start;
+    @Column(name = "start" )
+    private LocalDateTime start;
 
     @Column(name = "finish")
-    private Date finish;
+    private LocalDateTime finish;
 
     @Column(name = "remark")
     private String remark;
@@ -64,23 +64,25 @@ public class TimeSheet {
         this.number = number;
     }
 
-    public Date getStart() {
-        return start;
-    }
 
-    public void setStart(Date start) {
-        this.start = start;
-    }
 
-    public Date getFinish() {
-        return finish;
-    }
+    public LocalDateTime getStart() {
+		return start;
+	}
 
-    public void setFinish(Date finish) {
-        this.finish = finish;
-    }
+	public void setStart(LocalDateTime start) {
+		this.start = start;
+	}
 
-    public String getRemark() {
+	public LocalDateTime getFinish() {
+		return finish;
+	}
+
+	public void setFinish(LocalDateTime finish) {
+		this.finish = finish;
+	}
+
+	public String getRemark() {
         return remark;
     }
 
