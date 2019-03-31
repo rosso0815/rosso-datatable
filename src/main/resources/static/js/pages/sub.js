@@ -18,6 +18,7 @@ const Sub = {
   data: function () {
     return {
       message:'',
+      backtext:''
     }
   },
  
@@ -28,7 +29,8 @@ const Sub = {
   <h5>Subcomponent</h5>
   <input v-model="message" placeholder="edit me">
   <p>Message is: {{ message }}</p><br>
-  <MyInput v-bind:msg="message"></MyInput>
+  <MyInput v-bind:msg="message" v-on:backtext="message=$event"></MyInput>
+  backtext={{backtext}}
   </div>
 </div>`
 }
