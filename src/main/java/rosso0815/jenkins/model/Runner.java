@@ -15,7 +15,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "j5s_swid")
+@Table(name = "ts_runner")
 @JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Runner {
 
@@ -56,7 +56,7 @@ public class Runner {
     @JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
-	private Set<JenkinsJob> bundles;
+	private Set<Job> bundles;
 	
 	/*------------------------------------------------------------------------------*/
 	
@@ -132,11 +132,11 @@ public class Runner {
 		this.prod_installed = prod_installed;
 	}
 
-	public Set<JenkinsJob> getBundles() {
+	public Set<Job> getBundles() {
 		return bundles;
 	}
 
-	public void setBundles(Set<JenkinsJob> bundles) {
+	public void setBundles(Set<Job> bundles) {
 		this.bundles = bundles;
 	}
 	

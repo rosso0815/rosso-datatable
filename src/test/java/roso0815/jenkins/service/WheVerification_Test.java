@@ -12,8 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import rosso0815.jenkins.JenkinsApplication;
-import rosso0815.jenkins.model.JenkinsJob;
-import rosso0815.jenkins.repository.BundleRepository;
+import rosso0815.jenkins.model.Job;
+import rosso0815.jenkins.repository.JobRepository;
 //import rosso0815.jenkins.service.RfcService_Definition;
 //import rosso0815.jenkins.service.WheVerificationService_Definition;
 
@@ -24,18 +24,20 @@ import rosso0815.jenkins.repository.BundleRepository;
 public class WheVerification_Test  {
 	
 	@Autowired
-	private BundleRepository bundleRep;
+	private JobRepository bundleRep;
 	
 	@Before
 	public void Setup() {
 		
 		// first bundle
-		JenkinsJob b = new JenkinsJob();
+		Job b = new Job();
+		/*
 		b.setSwid("gsm");
 		b.setName("gsm_bundle_1");
 		b.setEnvironment("te1");
 		b.setVersion("0.0.1");
 		bundleRep.save(b);
+		*/
 	}
 	
 	@Test

@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import rosso0815.jenkins.model.JenkinsJob;
-import rosso0815.jenkins.repository.BundleRepository;
+import rosso0815.jenkins.model.Job;
+import rosso0815.jenkins.repository.JobRepository;
 
 @Service
 public class BundleService implements IBundleService {
@@ -15,10 +15,10 @@ public class BundleService implements IBundleService {
 	private final static Logger log = Logger.getLogger(BundleService.class.getName());
 	
 	@Autowired
-	private BundleRepository bundleRepository;
+	private JobRepository bundleRepository;
 
 	@Override
-	public List<JenkinsJob> listAllBundle() {
+	public List<Job> listAllBundle() {
 		
 		log.info("ListAllBundle         ");
 		return bundleRepository.findAll();

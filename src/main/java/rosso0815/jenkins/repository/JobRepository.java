@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
-import rosso0815.jenkins.model.JenkinsJob;
+import rosso0815.jenkins.model.Job;
 
-@Repository("bundleRepository")
-public interface BundleRepository extends JpaRepository<JenkinsJob, Long> {
+@Repository("jobRepository")
+public interface JobRepository extends JpaRepository<Job, Long> {
 
 }

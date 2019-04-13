@@ -91,7 +91,7 @@ const TsList = {
   },
   template: `
 <div>
-    <MyMenu/>
+  <MyMenu/>
   <div class="container-fluid">
   <b-row>
     <b-col md="8">
@@ -125,22 +125,17 @@ const TsList = {
     :sort-by.sync="sortBy"
     :sort-desc.sync="sortDesc"
     >
-      
       <template slot="start" slot-scope="row">{{ row.value | toDate }}</template>
-      
       <template slot="finish" slot-scope="row">{{ row.value | toDate }}</template>
-
       <template slot="actions" slot-scope="row">
       <!-- we use @click.stop here to prevent emitting of a 'row-clicked' event  -->
       <b-button size="sm" @click.stop="row.toggleDetails" class="mr-2">
        {{ row.detailsShowing ? 'Hide' : 'Show'}} Details
       </b-button>
     </template>
-
     <template slot="row-details" slot-scope="row">
     <b-card>
         {{ loadData( row ) }}
-
       <b-row class="mb-2">
         <b-col sm="3" class="text-sm-right"><b>remark</b></b-col>
         <b-col>{{ row.item.remark }}</b-col>
@@ -154,7 +149,6 @@ const TsList = {
     </b-card>
   </template>
   </b-table>
-  
   <b-row>
     <b-col md="6" class="my-1">
       <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0" />

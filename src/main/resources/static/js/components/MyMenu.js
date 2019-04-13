@@ -10,7 +10,7 @@ Vue.component('MyMenu', {
         <b-nav-item href="#/sub">Subcomponent</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
-    <!--<br>-->
+    <br>
   </div>
   `
 })

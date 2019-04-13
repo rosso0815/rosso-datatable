@@ -30,6 +30,7 @@ const Sub = {
   <input v-model="message" placeholder="edit me">
   <p>Message is: {{ message }}</p><br>
   <MyInput v-bind:msg="message" v-on:backtext="message=$event"></MyInput>
+  <MyInput msg="Second Input" v-model="backtext"></MyInput>
   backtext={{backtext}}
   </div>
 </div>`

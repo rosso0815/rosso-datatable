@@ -1,72 +1,67 @@
 package rosso0815.jenkins.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.time.LocalDateTime;
-import javax.persistence.Column;
+import java.util.Set;
 
 @Entity
-@Table(name = "j5s_timesheet")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class TimeSheet {
+@Table(name = "ts_timesheet")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "ts_id")
+public class TimeSheet implements java.io.Serializable  {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ts_id")
+	private long ts_id;
 
-    @Column(name = "number")
-    private Integer number;
+	@Column(name = "number")
+	private Integer number;
 
-    @Column(name = "start" )
-    private LocalDateTime start;
+	@Column(name = "start")
+	private LocalDateTime start;
 
-    @Column(name = "finish")
-    private LocalDateTime finish;
+	@Column(name = "finish")
+	private LocalDateTime finish;
 
-    @Column(name = "remark")
-    private String remark;
+	@Column(name = "remark")
+	private String remark;
 
-    @Column(name = "active")
-    private boolean active;
-
-    @Override
-    public String toString() {
-        return "TimeSheet{" +
-                "id=" + id +
-                ", number=" + number +
-                ", start=" + start +
-                ", finish=" + finish +
-                ", remark='" + remark + '\'' +
-                ", active=" + active +
-                '}';
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
+	@Column(name = "active")
+	private boolean active;
 
 
+	@ManyToMany
+	@JoinTable(name="ts_jobs_ts",joinColumns=@JoinColumn(name = "ts_id"),
+			inverseJoinColumns=@JoinColumn(name = "job_id"))
+	private Set<Job> jobs;
 
-    public LocalDateTime getStart() {
+	@Override
+	public String toString() {
+		return "TimeSheet [ts_id=" + ts_id + ", number=" + number + ", start=" + start + ", finish=" + finish
+				+ ", remark=" + remark + ", active=" + active + "]";
+	}
+
+	public long getTs_id() {
+		return ts_id;
+	}
+
+	public void setTs_id(long ts_id) {
+		this.ts_id = ts_id;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+
+	public LocalDateTime getStart() {
 		return start;
 	}
 
@@ -83,18 +78,26 @@ public class TimeSheet {
 	}
 
 	public String getRemark() {
-        return remark;
-    }
+		return remark;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
-    public boolean isActive() {
-        return active;
-    }
+	public boolean isActive() {
+		return active;
+	}
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public Set<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(Set<Job> jobs) {
+		this.jobs = jobs;
+	}
 }
