@@ -23,11 +23,12 @@ const TsList = {
       currentPage: 1,
       totalRows: 0,
       filter: '',
-      sortBy: 'number',
+      sortBy: 'ts_id',
       sortDesc: false,
       fields: [
         {
-          key: 'number',
+          key: 'ts_id',
+          label: 'id',
           sortable: true
         },
         {
@@ -67,9 +68,6 @@ const TsList = {
             //this.totalRows = response.data.length
         })
     },
-    
-    
-
   },
 
   filters: {
@@ -78,16 +76,15 @@ const TsList = {
     },
 
     toDate: function(row){
-      var t = new Date(row)
-      var seconds = t.getSeconds()
-      var minutes = t.getMinutes()
-      var hours = t.getHours()
-      var date = t.getDate();
-      var month = t.getMonth(); 
-      var year = t.getFullYear();
- 
-      return year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds
+        console.log('toDate row:',row)
+        if ( row.length > 0 ){
+            var t = new Date( row );
+            return t.toLocaleDateString() + ' ' + t.toLocaleTimeString()
+        }else{
+            return '<pls define>'
+        }
     },
+
   },
   template: `
 <div>
@@ -125,9 +122,13 @@ const TsList = {
     :sort-by.sync="sortBy"
     :sort-desc.sync="sortDesc"
     >
+
       <template slot="start" slot-scope="row">{{ row.value | toDate }}</template>
+
       <template slot="finish" slot-scope="row">{{ row.value | toDate }}</template>
+
       <template slot="actions" slot-scope="row">
+
       <!-- we use @click.stop here to prevent emitting of a 'row-clicked' event  -->
       <b-button size="sm" @click.stop="row.toggleDetails" class="mr-2">
        {{ row.detailsShowing ? 'Hide' : 'Show'}} Details

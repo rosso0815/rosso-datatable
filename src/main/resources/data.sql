@@ -1,7 +1,7 @@
 ---
 
 ---
-insert into TS_TIMESHEET( TS_REMARK) values ( 'remark 1' );
+insert into TS_TIMESHEET( TS_START , TS_FINISH , TS_REMARK) values ( CURRENT_TIMESTAMP , CURRENT_TIMESTAMP+1  , 'remark 1' );
 insert into TS_TIMESHEET( TS_REMARK) values ( 'remark 2' );
 insert into TS_TIMESHEET( TS_REMARK) values ( 'remark 3' );
 insert into TS_TIMESHEET( TS_REMARK) values ( 'remark 4' );

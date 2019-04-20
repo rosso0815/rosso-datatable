@@ -89,17 +89,24 @@
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
-			<version>4.1.3</version>
+			<version>4.3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>bootstrap-vue</artifactId>
-			<version>2.0.0-rc.13</version>
+			<version>2.0.0-rc.18</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.webjars.npm</groupId>
 					<artifactId>opencollective</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.webjars.npm</groupId>
+					<artifactId>popper.js</artifactId>
+				</exclusion>
+
+
+
 			</exclusions>
 		</dependency>
 		<dependency>
