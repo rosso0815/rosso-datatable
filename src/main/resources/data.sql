@@ -15,7 +15,7 @@ insert into ts_job( job_id , job_worker ) values ( 7 , 'person 7' );
 insert into ts_job( job_id , job_worker ) values ( 8 , 'person 8' );
 ---
 insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 1 , 1 );
-insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 1 , 2 );
-insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 2 , 3 );
-insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 2 , 4 );
+---insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 1 , 2 );
+---insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 2 , 3 );
+---insert into TS_JOBS_TS( JOB_ID , TS_ID ) values ( 2 , 4 );
 ---

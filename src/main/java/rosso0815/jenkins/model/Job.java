@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,17 +19,18 @@ public class Job implements java.io.Serializable {
 	@Column(name = "job_worker", nullable = false, length = 255)
 	String worker;
 
+	/*
 	@ManyToMany
 	@JoinTable(name="ts_jobs_ts",joinColumns=@JoinColumn(name = "job_id"),
 			inverseJoinColumns=@JoinColumn(name = "ts_id"))
 	private Set<TimeSheet> timeSheets;
+	*/
 
 	@Override
 	public String toString() {
 		return "Job{" +
 				"job_id=" + job_id +
 				", worker='" + worker + '\'' +
-				", timeSheets=" + timeSheets +
 				'}';
 	}
 
@@ -50,11 +50,4 @@ public class Job implements java.io.Serializable {
 		this.worker = worker;
 	}
 
-	public Set<TimeSheet> getTimeSheets() {
-		return timeSheets;
-	}
-
-	public void setTimeSheets(Set<TimeSheet> timeSheets) {
-		this.timeSheets = timeSheets;
-	}
 }

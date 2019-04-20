@@ -52,12 +52,12 @@ public class Runner {
 //	@ManyToMany(cascade = CascadeType.ALL)
 //	@JoinTable
 //	private Set<Rfc> rfcs;
-
+/*
     @JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
 	private Set<Job> bundles;
-	
+*/
 	/*------------------------------------------------------------------------------*/
 	
 	public long getId() {
@@ -132,15 +132,4 @@ public class Runner {
 		this.prod_installed = prod_installed;
 	}
 
-	public Set<Job> getBundles() {
-		return bundles;
-	}
-
-	public void setBundles(Set<Job> bundles) {
-		this.bundles = bundles;
-	}
-	
-	
-	
-	
 }
