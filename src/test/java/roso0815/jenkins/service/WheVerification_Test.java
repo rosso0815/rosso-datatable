@@ -17,10 +17,10 @@ import rosso0815.jenkins.repository.JobRepository;
 //import rosso0815.jenkins.service.RfcService_Definition;
 //import rosso0815.jenkins.service.WheVerificationService_Definition;
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 //@Import(MyTestsConfiguration.class)
-@DataJpaTest
-@SpringBootTest(classes = JenkinsApplication.class)
+//@DataJpaTest
+//@SpringBootTest(classes = JenkinsApplication.class)
 public class WheVerification_Test  {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class WheVerification_Test  {
 	public void Setup() {
 		
 		// first bundle
-		Job b = new Job();
+		//Job b = new Job();
 		/*
 		b.setSwid("gsm");
 		b.setName("gsm_bundle_1");
