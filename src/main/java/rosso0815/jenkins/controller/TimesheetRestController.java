@@ -8,27 +8,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rosso0815.jenkins.model.TimeSheet;
-import rosso0815.jenkins.repository.TimeSheetRepository;
-import rosso0815.jenkins.service.TimeSheetService;
+import rosso0815.jenkins.model.Timesheet;
+import rosso0815.jenkins.repository.TimesheetRepository;
+
 
 @RestController
 @RequestMapping("api/timesheet")
-public class TimeSheetRestController {
+public class TimesheetRestController {
 
-	private final static Logger log = Logger.getLogger(TimeSheetRestController.class.getName());
+	private final static Logger log = Logger.getLogger(TimesheetRestController.class.getName());
 
 	@Autowired
-	private TimeSheetRepository timeSheetRepo;
+	private TimesheetRepository tsRepo;
 
 //
 //	// ### LIST ALL
 //	// curl http://localhost:8080/api/rfc
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public List<TimeSheet> retrieveAllTimeSheet() {
+	public List<Timesheet> retrieveAllTimeSheet() {
 		log.info("list TimeSheets now");
-		return timeSheetRepo.findAll();
+		return tsRepo.findAll();
 	}
 
 	// ### LIST SINGLE

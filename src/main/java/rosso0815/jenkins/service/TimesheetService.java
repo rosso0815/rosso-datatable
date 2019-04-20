@@ -7,23 +7,23 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rosso0815.jenkins.model.TimeSheet;
-import rosso0815.jenkins.repository.TimeSheetRepository;
+import rosso0815.jenkins.model.Timesheet;
+import rosso0815.jenkins.repository.TimesheetRepository;
 
 
 @Service
-public class TimeSheetService implements ITimeSheetService {
+public class TimesheetService implements ITimesheetService {
 	
-	private final static Logger log = Logger.getLogger(TimeSheetService.class.getName());
+	private final static Logger log = Logger.getLogger(TimesheetService.class.getName());
 	
 	@Autowired
-	private TimeSheetRepository timeSheetRepo;
+	private TimesheetRepository tsRepo;
 
     @Override
-    public List<TimeSheet> listAllTimeSheet() {
+    public List<Timesheet> listAllTimeSheet() {
 
         log.info("ListAllTimeSheet");
-        return timeSheetRepo.findAll();
+        return tsRepo.findAll();
     }
 //
 //	@Override
