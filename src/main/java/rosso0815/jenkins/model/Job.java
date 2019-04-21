@@ -1,15 +1,12 @@
 package rosso0815.jenkins.model;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.Set;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "ts_job")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "job_id")
-public class Job implements java.io.Serializable {
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "job_id")
+public class Job {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,18 +16,15 @@ public class Job implements java.io.Serializable {
 	@Column(name = "job_worker", nullable = false, length = 255)
 	String worker;
 
-	/*
-	@ManyToMany
-	@JoinTable(name="ts_jobs_ts",joinColumns=@JoinColumn(name = "job_id"),
-			inverseJoinColumns=@JoinColumn(name = "ts_id"))
-	private Set<TimeSheet> timeSheets;
-	*/
+	@OneToMany(mappedBy = "job")
+	Set<TimesheetJob> timesheetJobs;
 
 	@Override
 	public String toString() {
 		return "Job{" +
 				"job_id=" + job_id +
 				", worker='" + worker + '\'' +
+				", timesheetJobs=" + timesheetJobs +
 				'}';
 	}
 
@@ -50,4 +44,11 @@ public class Job implements java.io.Serializable {
 		this.worker = worker;
 	}
 
+	public Set<TimesheetJob> getTimesheetJobs() {
+		return timesheetJobs;
+	}
+
+	public void setTimesheetJobs(Set<TimesheetJob> timesheetJobs) {
+		this.timesheetJobs = timesheetJobs;
+	}
 }

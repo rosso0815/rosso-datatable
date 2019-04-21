@@ -4,55 +4,51 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.time.LocalDateTime;
+import java.util.Set;
 
-@Entity(name = "Timesheet")
+@Entity
 @Table(name = "ts_timesheet")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "ts_id")
-public class Timesheet implements java.io.Serializable {
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "ts_id")
+public class Timesheet  {
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ts_id")
-    private long ts_id;
+    @Column(name = "timesheet_id")
+    private long timesheetId;
 
-    @Column(name = "ts_remark")
+    @Column(name = "timesheet_remark")
     private String remark;
 
-    @Column(name = "ts_start")
+    @Column(name = "timesheet_start")
     private LocalDateTime start;
 
-    @Column(name = "ts_finish")
+    @Column(name = "timesheet_finish")
     private LocalDateTime finish;
 
-    /*
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<TimesheetEntry> tsEntries = new ArrayList<>();
-    */
+    @OneToMany(mappedBy = "timesheet")
+    private Set<TimesheetJob> tsJobs;
 
     /*------------------------------------------------*/
 
     @Override
     public String toString() {
         return "Timesheet{" +
-                "ts_id=" + ts_id +
+                "timesheetId=" + timesheetId +
                 ", remark='" + remark + '\'' +
                 ", start=" + start +
                 ", finish=" + finish +
+                ", tsJobs=" + tsJobs +
                 '}';
     }
 
 
-    public long getTs_id() {
-        return ts_id;
+    public long getTimesheetId() {
+        return timesheetId;
     }
 
-    public void setTs_id(long ts_id) {
-        this.ts_id = ts_id;
+    public void setTimesheetId(long timesheetId) {
+        this.timesheetId = timesheetId;
     }
 
     public String getRemark() {
@@ -62,7 +58,6 @@ public class Timesheet implements java.io.Serializable {
     public void setRemark(String remark) {
         this.remark = remark;
     }
-
 
     public LocalDateTime getStart() {
         return start;
@@ -78,5 +73,13 @@ public class Timesheet implements java.io.Serializable {
 
     public void setFinish(LocalDateTime finish) {
         this.finish = finish;
+    }
+
+    public Set<TimesheetJob> getTsJobs() {
+        return tsJobs;
+    }
+
+    public void setTsJobs(Set<TimesheetJob> tsJobs) {
+        this.tsJobs = tsJobs;
     }
 }

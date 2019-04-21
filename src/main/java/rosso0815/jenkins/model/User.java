@@ -5,7 +5,4 @@ public class User {
     String firstName;
     String lastName;
 
-
-    // List<TimeSheet> timeSheets;
-
 }

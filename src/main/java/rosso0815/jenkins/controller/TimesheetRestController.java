@@ -28,7 +28,7 @@ public class TimesheetRestController {
 	@ResponseBody
 	public List<Timesheet> retrieveAllTimeSheet() {
 		log.info("list TimeSheets now");
-		return tsRepo.findAll();
+		return null;
 	}
 
 	// ### LIST SINGLE
