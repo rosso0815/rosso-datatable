@@ -3,6 +3,7 @@ package rosso0815.jenkins.model;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -26,7 +27,8 @@ public class Timesheet  {
 
     @Column(name = "ts_finish")
     private LocalDateTime finish;
-
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "timesheet")
     private Set<TimesheetJob> tsJobs=new HashSet<TimesheetJob>();;
 

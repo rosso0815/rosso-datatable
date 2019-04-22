@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "ts_job")
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "job_id")
@@ -16,7 +18,8 @@ public class Job {
 
 	@Column(name = "job_worker", nullable = false, length = 2000)
 	String worker;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "job")
 	Set<TimesheetJob> timesheetJobs = new HashSet<TimesheetJob>();
 
