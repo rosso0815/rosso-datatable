@@ -4,15 +4,14 @@ const TsList = {
 
   created() {
     console.log('created')
-
+    var _this = this
     axios
-      .get('api/timesheet')
+      .get('api/timesheetjob')
       .then((response) => {
-      console.log('response.status=' + response.status)
-      this.items = response.data
-      this.totalRows = response.data.length
-    })
-
+        console.log('response.status=' + response.status)
+        _this.items = response.data
+        _this.totalRows = response.data.length
+      })
   },
 
   data: function () {
@@ -27,7 +26,7 @@ const TsList = {
       sortDesc: false,
       fields: [
         {
-          key: 'ts_id',
+          key: 'tsjob_id',
           label: 'id',
           sortable: true
         },
@@ -123,9 +122,11 @@ const TsList = {
     :sort-desc.sync="sortDesc"
     >
 
-      <template slot="start" slot-scope="row">{{ row.value | toDate }}</template>
+      <template slot="start"  slot-scope="row">{{ row.item.timesheet.start | toDate  }}</template>
 
-      <template slot="finish" slot-scope="row">{{ row.value | toDate }}</template>
+      <template slot="finish" slot-scope="row">{{ row.item.timesheet.finish | toDate }}</template>
+
+      <template slot="remark" slot-scope="row">{{ row.item.remark }}</template>
 
       <template slot="actions" slot-scope="row">
 

@@ -15,16 +15,16 @@ public class Timesheet  {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "timesheet_id")
+    @Column(name = "ts_id")
     private long timesheetId;
 
-    @Column(name = "timesheet_remark")
+    @Column(name = "ts_remark")
     private String remark;
 
-    @Column(name = "timesheet_start")
+    @Column(name = "ts_start")
     private LocalDateTime start;
 
-    @Column(name = "timesheet_finish")
+    @Column(name = "ts_finish")
     private LocalDateTime finish;
 
     @OneToMany(mappedBy = "timesheet")

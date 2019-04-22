@@ -1,10 +1,13 @@
 package rosso0815.jenkins.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ts_timesheetjob")
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "tsjob_id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "tsjob_id")
 public class TimesheetJob {
 
 	@Id
@@ -12,8 +15,6 @@ public class TimesheetJob {
     @Column(name = "tsjob_id")
     private long tsjob_id;
 
-
-	
     @ManyToOne
     @JoinColumn(name = "timesheet_id")
     Timesheet timesheet;
