@@ -1,10 +1,6 @@
 package rosso0815.jenkins.model;
 
-
-
-
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "ts_timesheetjob")

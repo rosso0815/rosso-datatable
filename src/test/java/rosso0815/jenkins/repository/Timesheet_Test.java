@@ -62,4 +62,24 @@ public class Timesheet_Test {
 		log.info("@@@ done");
 	}
 
+
+	@Test
+	public void TestTimesheetJobSimple() {
+		log.info("@@@ TestTimesheetJob");
+
+		Job job = new Job();
+		job.setWorker("pfistera");
+
+//		Timesheet ts = new Timesheet();
+//		ts.setRemark("ts 01");
+
+
+		TimesheetJob tsJob = new TimesheetJob();
+		tsJob.setJob(job);
+		job.getTimesheetJobs().add(tsJob);
+
+		jobRepo.save(job);
+
+		log.info("@@@ done");
+	}
 }

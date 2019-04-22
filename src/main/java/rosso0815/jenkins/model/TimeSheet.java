@@ -5,6 +5,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -27,7 +28,7 @@ public class Timesheet  {
     private LocalDateTime finish;
 
     @OneToMany(mappedBy = "timesheet")
-    private Set<TimesheetJob> tsJobs;
+    private Set<TimesheetJob> tsJobs=new HashSet<TimesheetJob>();;
 
     /*------------------------------------------------*/
 

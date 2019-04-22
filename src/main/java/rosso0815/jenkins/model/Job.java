@@ -1,5 +1,6 @@
 package rosso0815.jenkins.model;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -13,11 +14,11 @@ public class Job {
 	@Column(name = "job_id")
 	private long job_id;
 
-	@Column(name = "job_worker", nullable = false, length = 255)
+	@Column(name = "job_worker", nullable = false, length = 2000)
 	String worker;
 
 	@OneToMany(mappedBy = "job")
-	Set<TimesheetJob> timesheetJobs;
+	Set<TimesheetJob> timesheetJobs = new HashSet<TimesheetJob>();
 
 	@Override
 	public String toString() {
