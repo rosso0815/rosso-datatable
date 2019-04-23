@@ -29,8 +29,6 @@ public class TimesheetJob {
 	public String toString() {
 		return "TimesheetJob{" +
 				"tsjob_id=" + tsjob_id +
-				", timesheet=" + timesheet +
-				", job=" + job +
 				", remark='" + remark + '\'' +
 				'}';
 	}

@@ -42,10 +42,6 @@ const TsList = {
           key: 'remark'
         },
         {
-          key: 'active',
-          sortable: true
-        },
-        {
             key: 'actions'
           }
       ]
@@ -107,7 +103,7 @@ const TsList = {
     </b-col>
         <b-col md="2">
       <b-form-group horizontal>
-      	<router-link tag="button" v-bind:to="{path: '/rfcnew'}">Add Rfc</router-link>
+      	<router-link tag="button" v-bind:to="{path: '/rfcnew'}">Add TimesheetJob</router-link>
       </b-form-group>
     </b-col>
   </b-row>
@@ -129,28 +125,30 @@ const TsList = {
       <template slot="remark" slot-scope="row">{{ row.item.remark }}</template>
 
       <template slot="actions" slot-scope="row">
+        <!-- we use @click.stop here to prevent emitting of a 'row-clicked' event  -->
+        <b-button size="sm" @click.stop="row.toggleDetails" class="mr-2">
+          {{ row.detailsShowing ? 'Hide' : 'Show'}}
+        </b-button>
+      </template>
 
-      <!-- we use @click.stop here to prevent emitting of a 'row-clicked' event  -->
-      <b-button size="sm" @click.stop="row.toggleDetails" class="mr-2">
-       {{ row.detailsShowing ? 'Hide' : 'Show'}} Details
-      </b-button>
-    </template>
     <template slot="row-details" slot-scope="row">
-    <b-card>
+      <b-card>
         {{ loadData( row ) }}
-      <b-row class="mb-2">
-        <b-col sm="3" class="text-sm-right"><b>remark</b></b-col>
-        <b-col>{{ row.item.remark }}</b-col>
-      </b-row>
-      <b-row class="mb-2">
-        <b-col sm="3" class="text-sm-right"><b>Is Active:</b></b-col>
-        <b-col>{{ row.item.active }}</b-col>
-      </b-row>
-      <router-link class="btn" v-bind:to="{name: 'ts-delete', params: {id: row.item.id}}">Delete</router-link>
-      <!--<router-link class="btn" v-bind:to="{name: 'ts-edit', params: {id: row.item.id}}">Edit</router-link>-->
-    </b-card>
-  </template>
+        <b-row class="mb-2">
+          <b-col sm="3" class="text-sm-right"><b>remark</b></b-col>
+          <b-col>{{ row.item.remark }}</b-col>
+        </b-row>
+        <b-row class="mb-2">
+          <b-col sm="3" class="text-sm-right"><b>Is Active:</b></b-col>
+          <b-col>{{ row.item.active }}</b-col>
+        </b-row>
+        <router-link class="btn" v-bind:to="{name: 'ts-delete', params: {id: row.item.id}}">Delete</router-link>
+        <!--<router-link class="btn" v-bind:to="{name: 'ts-edit', params: {id: row.item.id}}">Edit</router-link>-->
+      </b-card>
+    </template>
+
   </b-table>
+
   <b-row>
     <b-col md="6" class="my-1">
       <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0" />
