@@ -75,6 +75,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+           <scope>runtime</scope>
         </dependency>
 
         <!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId>
@@ -179,12 +180,14 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-
+<!-->
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>5.2.4</version>
         </dependency>
+ -->
+ 
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -200,17 +203,21 @@
             <artifactId>guava</artifactId>
             <version>20.0</version>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>2.4.1</version>
         </dependency>
-         <!-- flyway db does NOT support mariadb -->
-         <dependency>
+        -->
+        <!-- flyway db does NOT support mariadb -->
+        <!--
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
+        -->
+        
     </dependencies>
     <build>
         <!--<finalName>timesheet</finalName>-->
