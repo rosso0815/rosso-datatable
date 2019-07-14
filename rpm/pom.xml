@@ -42,7 +42,7 @@ Name: ${artifactId}
             <email>rosso0815@gmail.com</email>
             <name>Rosso0815</name>
             <url>https://github.com/rosso0815</url>
-            <id>rosso0815<id>
+            <id>rosso0815</id>
         </developer>
     </developers>
 

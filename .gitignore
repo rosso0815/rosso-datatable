@@ -1,9 +1,12 @@
-target
+frontend/package-lock.json
 .classpath
 .factorypath
 .idea
 .project
 .settings
 .vscode
-timesheet-table.iml
-out
+backend/target
+rpm/target
+frontend/target
+frontend/node
+frontend/node_modules
