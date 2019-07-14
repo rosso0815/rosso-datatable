@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project 
+    xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>rosso0815.play.timesheet</groupId>
+    <artifactId>rpm</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>rpm</packaging>
+
+    <name>rpm</name>
+    <description>Demo project for Spring Boot
+Name: ${artifactId}
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <url>http://localhost:3000/maven_web</url>
+        <connection>scm:git:http://localhost:3000/maven_web.git</connection>
+        <developerConnection>scm:git:http://localhost:3000/maven_web.git</developerConnection>
+        <tag>master</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>rosso0815@gmail.com</email>
+            <name>Rosso0815</name>
+            <url>https://github.com/rosso0815</url>
+            <id>rosso0815<id>
+        </developer>
+    </developers>
+
+    <ciManagement>
+        <url>http://localhost/jenkins/maven_web</url>
+    </ciManagement>
+
+    <build>
+        <plugins>
+            <!-- BUILD RPM -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <version>2.2.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <license>GPL</license>
+                    <distribution>Trash 2005</distribution>
+                    <group>Application/Collectors</group>
+                    <packager>SWWDC</packager>
+                    <defaultDirmode>755</defaultDirmode>
+                    <defaultFilemode>644</defaultFilemode>
+                    <defineStatements>
+                        <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
+                        <defineStatement>AutoReqProv no</defineStatement>
+                    </defineStatements>
+
+                    <mappings>
+                        <!--
+                        <mapping>
+                            <directory>/usr/local/opt/${artifactId}/classes</directory>
+                            <sources>
+                                <source>
+                                    <location>target/classes</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        -->
+                        <!--
+                        <mapping>
+                            <directory>/usr/local/opt/${artifactId}/lib</directory>
+                            <dependency>
+                                <stripVersion>true</stripVersion>
+                            </dependency>
+
+                        </mapping>
+                        -->
+
+                        <mapping>
+                            <directory>/usr/local/opt/${artifactId}/bin</directory>
+                            <directoryIncluded>false</directoryIncluded>
+                            <filemode>744</filemode>
+                            <sources>
+                                <source>
+                                     <includes>
+                                        <include>*.sh</include>
+                                    </includes>
+                                    <location>src/main/bin</location>
+                                </source>
+                            </sources>
+                        </mapping>
+
+                        <mapping>
+                            <directory>/usr/local/opt/${artifactId}/conf</directory>
+                            <directoryIncluded>false</directoryIncluded>
+                            <filemode>400</filemode>
+                            <sources>
+                                <source>
+                                    <includes>
+                                        <include>*.conf</include>
+                                    </includes>
+                                    <location>src/main/conf</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        
+                        <!--
+                        <mapping>
+                            <directory>/usr/local/opt/${artifactId}/conf</directory>
+                            <directoryIncluded>false</directoryIncluded>
+                            <filemode>644</filemode>
+                            <sources>
+                                <source>
+                                    <includes>
+                                        <include>*.config</include>
+                                    </includes>
+                                    <location>src/main/conf</location>
+                                </source>
+                            </sources>
+                        </mapping>
+                        -->
+
+                    </mappings>
+                    
+                    <!--
+                    <preinstallScriptlet>
+                        <script>echo "installing now"</script>
+                    </preinstallScriptlet>
+                    <postinstallScriptlet>
+                        <scriptFile>src/main/scripts/postinstall</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </postinstallScriptlet>
+                    <preremoveScriptlet>
+                        <scriptFile>src/main/scripts/preremove</scriptFile>
+                        <fileEncoding>utf-8</fileEncoding>
+                    </preremoveScriptlet>
+                    -->
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>rosso0815.play.timesheet</groupId>
+            <artifactId>timesheet-table</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Jenkins</title>
+
+<link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.css'>
+<link rel='stylesheet' href='/webjars/bootstrap-vue/bootstrap-vue.css'>
+
+</head>
+<body>
+	<div id="app" class="container-fluid">
+	
+		<h1>VueTable Employee</h1>
+		
+		<!-- the Table is coming ... -->
+		<template> 
+		  <b-row>
+      		<b-col md="6" class="my-1">
+        		<b-form-group horizontal label="Filter" class="mb-0">
+          			<b-input-group>
+            		<b-form-input v-model="filter" placeholder="Type to Search" />
+            		<b-input-group-append>
+              		<b-btn :disabled="!filter" @click="filter = ''">Clear</b-btn>
+            		</b-input-group-append>
+          			</b-input-group>
+        			</b-form-group>
+      			</b-col>
+			</b-row>
+			
+			<b-table 
+				show-empty
+				stacked="md"
+				:per-page="perPage"
+	  		 	:current-page="currentPage"
+	  		 	:filter="filter"
+				striped 
+				hover 
+				:items="items"
+				:sort-by.sync="sortBy"
+                :sort-desc.sync="sortDesc"
+				@filtered="onFiltered" 
+				>
+			</b-table>
+		</template>
+		<b-row>
+			<b-col md="6" class="my-1">
+        		<b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="my-0" />
+      		</b-col>
+    	</b-row>
+    	
+    	
+	</div>
+
+	<script src="webjars/vue/dist/vue.js"></script>
+	<script src="webjars/bootstrap-vue/bootstrap-vue.js"></script>
+	<script src="webjars/axios/dist/axios.js"></script>
+	<script src="js/vuetable_employee.js"></script>
+
+</body>
+</html>
