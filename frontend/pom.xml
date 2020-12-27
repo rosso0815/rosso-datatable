@@ -4,8 +4,8 @@
 	<artifactId>frontend</artifactId>
 
 	<parent>
-		<groupId>de.jonashackt</groupId>
-		<artifactId>spring-boot-vuejs</artifactId>
+		<groupId>rosso0815.vuejs</groupId>
+		<artifactId>datatable</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 

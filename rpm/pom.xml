@@ -16,6 +16,14 @@
 Name: ${artifactId}
     </description>
 
+
+
+    <parent>
+        <groupId>rosso0815.vuejs</groupId>
+        <artifactId>datatable</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -157,12 +165,14 @@ Name: ${artifactId}
     </build>
 
     <dependencies>
+        <!--
         <dependency>
             <groupId>rosso0815.play.timesheet</groupId>
             <artifactId>timesheet-table</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
+        -->
     </dependencies>
 
 </project>

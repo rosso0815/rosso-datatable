@@ -10,3 +10,8 @@ rpm/target
 frontend/target
 frontend/node
 frontend/node_modules
+backend/backend.iml
+vuecrud.iml
+datatable.iml
+frontend/frontend.iml
+rpm/rpm.iml

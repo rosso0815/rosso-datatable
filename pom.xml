@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>rosso0815.play.timesheet</groupId>
-	<artifactId>vuecrud</artifactId>
+	<groupId>rosso0815.vuejs</groupId>
+	<artifactId>datatable</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -14,58 +14,31 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.6.RELEASE</version>
+		<version>2.3.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
     <properties>
         <main.basedir>${project.basedir}</main.basedir>
-
-		<!-- Analysis Tools for CI -->
-		<!--
-		<build-plugin.jacoco.version>0.8.4</build-plugin.jacoco.version>
-		<build-plugin.coveralls.version>4.3.0</build-plugin.coveralls.version>
-		-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
+		<jquery.version>3.2.1</jquery.version>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<docker.image.prefix>rosso0815</docker.image.prefix>
     </properties>
-	
+
+	<scm>
+		<connection>scm:jgit:http://localhost:3000/rosso0815/datatable</connection>
+		<developerConnection>scm:jgit:http://localhost:3000/rosso0815/datatable</developerConnection>
+		<url>http://localhost:3000/rosso0815/datatable</url>
+		<tag>HEAD</tag>
+	</scm>
+
 	<modules>
         <module>frontend</module>
         <module>backend</module>
 		<module>rpm</module>
     </modules>
-
-	<build>
-		<plugins>
-			<!-->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${build-plugin.jacoco.version}</version>
-				<executions>
-					<execution>
-						<id>pre-unit-test</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-unit-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			-->
-			<!--
-			<plugin>
-				<groupId>org.eluder.coveralls</groupId>
-				<artifactId>coveralls-maven-plugin</artifactId>
-				<version>${build-plugin.coveralls.version}</version>
-			</plugin>
-			-->
-		</plugins>
-	</build>
 
 </project>
