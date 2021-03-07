@@ -1,0 +1,10 @@
+---
+kind: pipeline
+name: greeting
+steps:
+- name: en
+  image: alpine
+  commands:
+  - echo @@@ start
+  - echo key 1 $KEY
+  - echo key 2 $${KEY}
