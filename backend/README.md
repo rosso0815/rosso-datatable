@@ -11,3 +11,6 @@ http://localhost:8081/ts
 
 
 mvn clean spring-boot:run -Dspring-boot.run.profiles=dev
+
+
+ http://localhost:8081/swagger-ui/

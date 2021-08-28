@@ -18,15 +18,17 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-    <properties>
-        <main.basedir>${project.basedir}</main.basedir>
+	<properties>
+		<main.basedir>${project.basedir}</main.basedir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
 		<jquery.version>3.2.1</jquery.version>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<docker.image.prefix>rosso0815</docker.image.prefix>
-    </properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 
 	<scm>
 		<connection>scm:jgit:http://localhost:3000/rosso0815/datatable</connection>

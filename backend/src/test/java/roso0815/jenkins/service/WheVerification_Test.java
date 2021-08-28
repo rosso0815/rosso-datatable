@@ -5,15 +5,9 @@ package roso0815.jenkins.service;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import rosso0815.jenkins.JenkinsApplication;
-import rosso0815.jenkins.model.Job;
-import rosso0815.jenkins.repository.JobRepository;
+import rosso0815.jenkins.repository.EmployeeRepository;
 //import rosso0815.jenkins.service.RfcService_Definition;
 //import rosso0815.jenkins.service.WheVerificationService_Definition;
 
@@ -24,7 +18,7 @@ import rosso0815.jenkins.repository.JobRepository;
 public class WheVerification_Test  {
 	
 	@Autowired
-	private JobRepository bundleRep;
+	private EmployeeRepository bundleRep;
 	
 	@Before
 	public void Setup() {

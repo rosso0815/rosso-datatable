@@ -1,6 +1,5 @@
 package rosso0815.jenkins.repository;
 
-import java.util.Set;
 import java.util.logging.Logger;
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class Timesheet_Test {
 	private final static Logger log = Logger.getLogger(Timesheet_Test.class.getName());
 
 	@Autowired
-	private JobRepository jobRepo;
+	private EmployeeRepository jobRepo;
 
 	@Autowired
 	private TimesheetRepository tsRepo;
@@ -42,7 +41,7 @@ public class Timesheet_Test {
 	@Test
 	public void TestTimesheetJob() {
 		log.info("@@@ TestTimesheetJob");
-
+/*
 		Job job = new Job();
 		job.setWorker("rosso0815");
 		jobRepo.save(job);
@@ -60,6 +59,8 @@ public class Timesheet_Test {
 		log.info("all="+tsJobRepo.findAll());
 
 		log.info("@@@ done");
+
+ */
 	}
 
 
@@ -78,7 +79,7 @@ public class Timesheet_Test {
 		tsJob.setJob(job);
 		job.getTimesheetJobs().add(tsJob);
 
-		jobRepo.save(job);
+		// jobRepo.save(job);
 
 		log.info("@@@ done");
 	}

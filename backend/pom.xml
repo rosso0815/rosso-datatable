@@ -16,10 +16,7 @@
     </parent>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -32,6 +29,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>2.7.4</version>
+        </dependency>
+
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -46,79 +52,12 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-           <scope>runtime</scope>
-        </dependency>
+
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator</artifactId>
-            <version>0.34</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>4.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>bootstrap-vue</artifactId>
-            <version>2.0.0-rc.24</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.webjars.npm</groupId>
-                    <artifactId>opencollective</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.webjars.npm</groupId>
-                    <artifactId>popper.js</artifactId>
-                </exclusion>
 
-
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>vue-router</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>vue</artifactId>
-            <version>2.5.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>vue-resource</artifactId>
-            <version>1.3.4</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.webjars.npm/axios -->
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>axios</artifactId>
-            <version>0.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>vuejs-datepicker</artifactId>
-            <version>1.5.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>babel-polyfill</artifactId>
-            <version>6.26.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.webjars.npm</groupId>
-                    <artifactId>regenerator-runtime</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
@@ -141,46 +80,23 @@
             <artifactId>jenkins-client</artifactId>
             <version>0.3.7</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        -->
-        <!--
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>20.0</version>
-        </dependency>
-        -->
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
-        </dependency><dependency>
-        <groupId>io.springfox</groupId>
-        <artifactId>springfox-swagger-ui</artifactId>
-        <version>3.0.0</version>
-    </dependency>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
     <build>
         <!--<finalName>timesheet</finalName>-->

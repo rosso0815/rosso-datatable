@@ -9,29 +9,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rosso0815.jenkins.model.Job;
-import rosso0815.jenkins.repository.JobRepository;
-
+import rosso0815.jenkins.model.Employee;
+import rosso0815.jenkins.repository.EmployeeRepository;
 
 @RestController
-@RequestMapping("/api/job")
-public class JobRestController {
+@RequestMapping("/api/employees")
+public class EmployeeRestController {
 
-
-
-	private final static Logger log = Logger.getLogger(JobRestController.class.getName());
+	private final static Logger log = Logger.getLogger(EmployeeRestController.class.getName());
 
 	@Autowired
-	private JobRepository jobRepository;
+	EmployeeRepository employeeRepository;
 
-	// ### LIST ALL
-	// curl http://localhost:8080/api/rfc
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public List<Job> findAll() {
-		log.info("list all jobs");
-		return jobRepository.findAll();
+	public List<Employee> findAll() {
+		log.info("@@@ list all jobs");
+		return employeeRepository.findAll();
 	}
-
 
 }

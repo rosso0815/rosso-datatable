@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rosso0815.jenkins.model.Job;
-import rosso0815.jenkins.repository.JobRepository;
-
+import rosso0815.jenkins.repository.EmployeeRepository;
+/*
 @Service
 public class BundleService implements IBundleService {
 	
 	private final static Logger log = Logger.getLogger(BundleService.class.getName());
 	
 	@Autowired
-	private JobRepository bundleRepository;
+	private EmployeeRepository bundleRepository;
 
 	@Override
 	public List<Job> listAllBundle() {
@@ -25,3 +25,4 @@ public class BundleService implements IBundleService {
 	}
 
 }
+*/
