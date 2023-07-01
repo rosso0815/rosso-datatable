@@ -8,8 +8,8 @@ export default {
   name: 'CompTable',
 
   props: {
-    title: String , 
-    fields: Array ,
+    title: String,
+    fields: Array,
     apiUrl: String
   },
 
@@ -34,7 +34,7 @@ export default {
   },
   created () {
     axios
-      .get( this.apiUrl )
+      .get(this.apiUrl)
       .then(response => {
         // JSON responses are automatically parsed.
         console.log('load data')

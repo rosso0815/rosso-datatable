@@ -1,14 +1,16 @@
 package rosso0815.jenkins.model;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "j_employees")
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "emp_no")
+    @GeneratedValue(generator = "sec1", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "sec1", sequenceName = "sec1",allocationSize=1)
+    @Column(name="empno", unique=true, nullable=false, precision=10, scale=0)
     Long empNo;
 
     @Column(name = "first_name")

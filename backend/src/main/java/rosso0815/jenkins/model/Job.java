@@ -2,9 +2,8 @@ package rosso0815.jenkins.model;
 
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ts_job")
